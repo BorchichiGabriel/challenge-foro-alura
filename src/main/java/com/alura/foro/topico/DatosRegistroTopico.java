@@ -1,6 +1,18 @@
 package com.alura.foro.topico;
 
-public record DatosRegistroTopico(String titulo, String mensaje, StatusTopico estatus,
-		String autor, String curso) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record DatosRegistroTopico(
+		@NotBlank
+		String titulo, 
+		@NotBlank
+		String mensaje, 
+		@NotNull
+		StatusTopico estatus,
+		@NotBlank
+		String autor, 
+		@NotBlank
+		String curso) {
 
 }

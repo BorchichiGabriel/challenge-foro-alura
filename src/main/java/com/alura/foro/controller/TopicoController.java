@@ -10,6 +10,8 @@ import com.alura.foro.topico.DatosRegistroTopico;
 import com.alura.foro.topico.Topico;
 import com.alura.foro.topico.TopicoRepository;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/topicos")
 public class TopicoController {
@@ -18,7 +20,7 @@ public class TopicoController {
 	private TopicoRepository topicoRepository;
 	
 	@PostMapping
-	public void registrarTopico(@RequestBody DatosRegistroTopico datosRegistroTopico) {
+	public void registrarTopico(@RequestBody @Valid DatosRegistroTopico datosRegistroTopico) {
 		topicoRepository.save(new Topico(datosRegistroTopico));
 	}
 }
