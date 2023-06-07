@@ -82,4 +82,13 @@ public class Topico {
 		this.estatus = datos.estatus();
 	}
 
+	public void actualizarDatos(DatosActualizarTopico datosActualizarTopico) {
+		if(datosActualizarTopico.titulo() != null) {
+			this.titulo = datosActualizarTopico.titulo();
+		}
+		if (datosActualizarTopico.mensaje() != null) {
+			this.mensaje = datosActualizarTopico.mensaje();
+		}
+	}
+
 }
