@@ -1,8 +1,9 @@
 package com.alura.foro.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +30,7 @@ public class TopicoController {
 	}
 	
 	@GetMapping
-	public List<DatosListadoTopico> listaTopicos(){
-		return topicoRepository.findAll().stream().map(DatosListadoTopico::new).toList();
+	public Page<DatosListadoTopico> listaTopicos(Pageable paginacion){
+		return topicoRepository.findAll(paginacion).map(DatosListadoTopico::new);
 	}
 }
