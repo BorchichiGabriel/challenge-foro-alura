@@ -91,4 +91,11 @@ public class Topico {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "Topico [id=" + id + ", titulo=" + titulo + ", mensaje=" + mensaje + "]";
+	}
+	
+	
+
 }
