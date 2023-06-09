@@ -39,6 +39,9 @@ public class TopicoController {
 	
 	@PostMapping
 	public void registrarTopico(@RequestBody @Valid DatosRegistroTopico datosRegistroTopico) {
+		if(topicoRepository.existsByTituloOrMensaje(datosRegistroTopico.titulo(),datosRegistroTopico.mensaje())) {
+			throw new IllegalArgumentException("Ya existe un topico con el mismo titulo o mensaje");
+		}
 		topicoRepository.save(new Topico(datosRegistroTopico));
 	}
 	
