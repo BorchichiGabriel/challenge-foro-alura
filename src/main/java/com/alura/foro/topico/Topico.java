@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.alura.foro.modelo.Curso;
 import com.alura.foro.modelo.Respuesta;
-import com.alura.foro.modelo.Usuario;
+import com.alura.foro.usuario.Usuario;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

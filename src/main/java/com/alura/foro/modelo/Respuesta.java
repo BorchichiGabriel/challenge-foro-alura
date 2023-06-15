@@ -3,6 +3,7 @@ package com.alura.foro.modelo;
 import java.time.LocalDateTime;
 
 import com.alura.foro.topico.Topico;
+import com.alura.foro.usuario.Usuario;
 
 public class Respuesta {
 
