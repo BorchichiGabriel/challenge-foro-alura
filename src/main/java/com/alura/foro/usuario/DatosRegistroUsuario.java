@@ -1,4 +1,4 @@
-package com.alura.foro.controller;
+package com.alura.foro.usuario;
 
 import jakarta.validation.constraints.NotBlank;
 

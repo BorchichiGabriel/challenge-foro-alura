@@ -2,7 +2,6 @@ package com.alura.foro.usuario;
 
 import java.time.LocalDateTime;
 
-import com.alura.foro.controller.DatosRegistroUsuario;
 import com.alura.foro.topico.StatusTopico;
 
 import jakarta.persistence.Entity;
@@ -61,6 +60,17 @@ public class Usuario {
 	public Usuario(@Valid DatosRegistroUsuario datosRegistroUsuario) {
 		this.usuario = datosRegistroUsuario.usuario();
 		this.password = datosRegistroUsuario.password();
+	}
+
+	public void actualizarDatos(@Valid DatosActualizarUsuario datosActualizarUsuario) {
+		System.out.println(datosActualizarUsuario.password());
+		System.out.println(this.password);
+		if(this.password.equals(datosActualizarUsuario.password())) {
+			this.password = datosActualizarUsuario.nuevoPassword();
+		}else {
+			throw new IllegalArgumentException("La contrasenia ingresada no es correcta");
+		}
+		
 	}
 
 	

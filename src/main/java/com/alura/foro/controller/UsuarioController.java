@@ -1,11 +1,17 @@
 package com.alura.foro.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alura.foro.topico.DatosActualizarTopico;
+import com.alura.foro.topico.Topico;
+import com.alura.foro.usuario.DatosActualizarUsuario;
+import com.alura.foro.usuario.DatosRegistroUsuario;
 import com.alura.foro.usuario.Usuario;
 import com.alura.foro.usuario.UsuarioRepository;
 
@@ -26,6 +32,11 @@ public class UsuarioController {
 		usuarioRepository.save(new Usuario(datosRegistroUsuario));
 	}
 	
-	
+	@PutMapping
+	@Transactional
+	public void actualizarUsuario(@RequestBody @Valid DatosActualizarUsuario datosActualizarUsuario) {
+		Usuario usuario  = usuarioRepository.getReferenceById(datosActualizarUsuario.id());
+		usuario.actualizarDatos(datosActualizarUsuario);
+	}
 	
 }
